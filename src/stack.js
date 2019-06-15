@@ -32,9 +32,9 @@ const Stack = function() {
       return store[length - 1];
     },
     /**
-     * @function length
+     * @function size
      */
-    length: function() {
+    size: function() {
       return length;
     }
   }
