@@ -1,2 +1,2 @@
 # Data Structures & Algorithms in JavaScript
-Stacks, Queues, Linked Lists, etc. Following along with FreeCodeCamp.
+Stacks, Sets, Linked Lists, etc. Following along with FreeCodeCamp, but modifying to use CommonJS and modules to test with Node.
