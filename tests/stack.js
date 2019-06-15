@@ -1,14 +1,15 @@
 const Stack = require('../src/stack');
 
+const stack = Stack();
 const str = 'hello world';
 let result = '';
 
 for (let i = 0; i < str.length; i++) {
-  Stack.push(str.charAt(i));
+  stack.push(str.charAt(i));
 }
 
 for (let i = 0; i < str.length; i++) {
-  result += Stack.pop();
+  result += stack.pop();
 }
 
 console.log(`Original string: ${str}`);

@@ -3,7 +3,7 @@
  * @module Stack
  */
 
-const Stack = (function() {
+const Stack = function() {
   const store = {};
   let length = 0;
   return {
@@ -38,6 +38,6 @@ const Stack = (function() {
       return length;
     }
   }
-})();
+};
 
 module.exports = Stack;
