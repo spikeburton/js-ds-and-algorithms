@@ -27,7 +27,7 @@ const HashTable = function() {
     /**
      * @function add
      * @param {string} key
-     * @param {number} value
+     * @param {*} value
      */
     add: function(key, value) {
       const index = hash(key, storageLimit);
