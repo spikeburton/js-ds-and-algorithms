@@ -20,3 +20,5 @@ console.log('Remove: 7');
 bst.remove(7);
 console.log(`Max: `, bst.findMax());
 console.log(`Tree now: `, bst);
+
+console.log(`Tree min height: ${bst.findMinHeight()}`)

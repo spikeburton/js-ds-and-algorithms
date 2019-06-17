@@ -158,6 +158,129 @@ class BST {
     };
     this.root = removeNode(this.root, data);
   }
+
+  /**
+   * @method findMinHeight
+   * @param {Node} node
+   * @description Find the minimum height of the tree
+   */
+  findMinHeight(node = this.root) {
+    if (node === null) {
+      return -1;
+    }
+    let left = this.findMinHeight(node.left);
+    let right = this.findMinHeight(node.right);
+    if (left < right) return left + 1;
+    else return right + 1;
+  }
+
+  /**
+   * @method findmaxHeight
+   * @param {Node} node
+   * @description Find the maximum height of the tree
+   */
+  findmaxHeight(node = this.root) {
+    if (node === null) {
+      return -1;
+    }
+    let left = this.findmaxHeight(node.left);
+    let right = this.findmaxHeight(node.right);
+    if (left > right) return left + 1;
+    else return right + 1;
+  }
+
+  /**
+   * @method isBalanced
+   * @description Returns true if the tree is balanced, false otherwise
+   */
+  isBalanced() {
+    return this.findMinHeight() >= this.findmaxHeight() - 1;
+  }
+
+  /**
+   * @method inOrder
+   * @description Traverse the tree in order
+   */
+  inOrder() {
+    if (this.root === null) {
+      return null;
+    } else {
+      const result = [];
+      /**
+       * @function traverse
+       * @param {Node} node
+       */
+      function traverse(node) {
+        node.left && traverse(node.left);
+        result.push(node.data);
+        node.right && traverse(node.right);
+      }
+      traverse(this.root);
+      return result;
+    }
+  }
+
+  /**
+   * @method preOrder
+   */
+  preOrder() {
+    if (this.root === null) {
+      return null;
+    } else {
+      const result = [];
+      /**
+       * @function traverse
+       * @param {Node} node
+       */
+      function traverse(node) {
+        result.push(node.data);
+        node.left && traverse(node.left);
+        node.right && traverse(node.right);
+      }
+      traverse(this.root);
+      return result;
+    }
+  }
+
+  /**
+   * @method postOrder
+   */
+  postOrder() {
+    if (this.root === null) {
+      return null;
+    } else {
+      const result = [];
+      /**
+       * @function traverse
+       * @param {Node} node
+       */
+      function traverse(node) {
+        node.left && traverse(node.left);
+        node.right && traverse(node.right);
+        result.push(node.data);
+      }
+      traverse(this.root);
+      return result;
+    }
+  }
+
+  /**
+   * @method levelOrder
+   */
+  levelOrder() {
+    const result = [];
+    const Q = [];
+    if (this.root !== null) {
+      Q.push(this.root);
+      while (Q.length > 0) {
+        let node = Q.shift();
+        result.push(Q.data);
+        if (node.left !== null) Q.push(node.left);
+        if (node.right !== null) Q.push(node.right);
+      }
+      return result;
+    } else return null;
+  }
 }
 
 module.exports = { Node, BST };
