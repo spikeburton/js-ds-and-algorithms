@@ -16,7 +16,7 @@ console.log(`4 is present: `, bst.isPresent(4));
 console.log(`Tree now: `, bst);
 console.log(`Min: `, bst.findMin());
 console.log(`Max: `, bst.findMax());
-console.log('Remove: 7')
+console.log('Remove: 7');
 bst.remove(7);
 console.log(`Max: `, bst.findMax());
 console.log(`Tree now: `, bst);
