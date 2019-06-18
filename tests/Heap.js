@@ -1,0 +1,12 @@
+const { MinHeap } = require('../src')
+
+const min = new MinHeap()
+min.insert(1)
+min.insert(5)
+min.insert(14)
+min.insert(2)
+min.insert(9)
+min.insert(12)
+min.insert(7)
+console.log('Heap: ', min)
+console.log('Sorted: ', min.sort())
