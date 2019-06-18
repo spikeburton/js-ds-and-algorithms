@@ -1,3 +1,4 @@
 const { Trie } = require('./Trie')
+const { MinHeap } = require('./Heap')
 
-module.exports = { Trie }
+module.exports = { Trie, MinHeap }
