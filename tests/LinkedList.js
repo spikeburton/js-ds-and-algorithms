@@ -1,0 +1,23 @@
+const { LinkedList } = require('../src/LinkedList')
+
+const ll = new LinkedList()
+
+console.log('Is the list empty? ', ll.isEmpty())
+ll.add('dog')
+ll.add('cat')
+ll.add('bunny')
+ll.add('frog')
+ll.add('cow')
+console.log('List: ', ll)
+console.log(`List size: ${ll.size()}`)
+console.log('Removing cat ...')
+ll.remove('cat')
+console.log('List now: ', ll)
+console.log('Removing element 1 ...')
+ll.removeAt(1);
+console.log('List now: ', ll)
+console.log('Adding element at index 1 ...')
+ll.addAt(1, 'carrot')
+console.log('List now: ', ll)
+console.log('Element at index 1: ', ll.elementAt(1))
+console.log('Index of "cow": ', ll.indexOf('cow'))
