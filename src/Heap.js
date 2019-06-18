@@ -18,7 +18,7 @@ class MinHeap {
       let idx = this.heap.length - 1;
       // IF item at idx is smaller than parent node, move it up in the heap
       // CONTINUE until node is not smaller than parent
-      while (heap[idx] < this.heap[Math.floor(idx / 2)]) {
+      while (this.heap[idx] < this.heap[Math.floor(idx / 2)]) {
         // IF not the root node
         if (idx >= 1) {
           // SWAP: [PARENT, INSERTED] = [INSERTED, PARENT]
