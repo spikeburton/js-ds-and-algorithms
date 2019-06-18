@@ -1,0 +1,12 @@
+const { Trie } = require('../src')
+
+const myTrie = new Trie()
+myTrie.add('spike')
+myTrie.add('bill')
+myTrie.add('cheryl')
+myTrie.add('ball')
+myTrie.add('spicy')
+console.log(myTrie)
+console.log(myTrie.print())
+console.log('myTrie contains the word "ball": ' ,myTrie.isWord('ball'))
+console.log('myTrie contains the word "spider": ' ,myTrie.isWord('spider'))
