@@ -42,38 +42,45 @@
 /**
  * @function bfs
  * @param {Array} graph
- * @param {*} root
+ * @param {number} root
  * @description Breadth-first search algorithm for a graph
  */
 function bfs(graph, root) {
-  const nodesLen = {}
+  const nodesLen = {};
 
+  // INIT all distances to Infinity
   for (let i = 0; i < graph.length; i++) {
-    nodesLen[root] = 0;
+    nodesLen[i] = Infinity;
+  }
+  nodesLen[root] = 0;
 
-    const Q = [root];
-    let current;
+  const Q = [root];
+  let current;
 
-    while (Q.length != 0) {
-      current = Q.shift();
+  while (Q.length != 0) {
+    current = Q.shift();
 
-      const curConnected = graph[current];
-      const neighborIdx = [];
-      let idx = curConnected.indexOf(1);
-      while (idx != -1) {
-        neighborIdx.push(idx);
-        idx = curConnected.indexOf(1, idx + 1);
-      }
+    // GET all nodes connected to the current node
+    const curConnected = graph[current];
+    const neighborIdx = [];
+    // FIND first occurence of a connected node, signified by a 1 in the array
+    let idx = curConnected.indexOf(1);
+    // WHILE a connected node is found ...
+    while (idx != -1) {
+      neighborIdx.push(idx);
+      // FIND next occurence, starting from the index of the last found
+      idx = curConnected.indexOf(1, idx + 1);
+    }
 
-      for (let j = 0; j < neighborIdx.length; j++) {
-        if (nodesLen[neighborIdx[j]] == Infinity) {
-          nodesLen[neighborIdx[j]] = nodesLen[current] + 1;
-          Q.push(neighborIdx[j]);
-        }
+    for (let j = 0; j < neighborIdx.length; j++) {
+      // IF the key for the index has a value of Infinity, that means we have not set the value yet
+      if (nodesLen[neighborIdx[j]] == Infinity) {
+        nodesLen[neighborIdx[j]] = nodesLen[current] + 1;
+        Q.push(neighborIdx[j]);
       }
     }
   }
-  return nodesLen
+  return nodesLen;
 }
 
-module.exports = { bfs }
+module.exports = { bfs };
