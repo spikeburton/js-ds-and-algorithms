@@ -58,16 +58,17 @@ const mergeSort = (function() {
    */
   const merge = (left, right) => {
     const result = [];
+    let il = 0, ir = 0;
 
-    while (left.length || right.length) {
-      if (left.length && right.length) {
-        if (left[0] < right[0]) {
-          result.push(left.shift());
+    while (il < left.length || ir < right.length) {
+      if (il < left.length && ir < right.length) {
+        if (left[il] < right[ir]) {
+          result.push(left[il++]);
         } else {
-          result.push(right.shift());
+          result.push(right[ir++]);
         }
-      } else if (left.length) result.push(left.shift());
-      else result.push(right.shift());
+      } else if (il < left.length) result.push(left[il++]);
+      else result.push(right[ir++]);
     }
 
     return result;
