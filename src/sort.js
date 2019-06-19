@@ -95,6 +95,24 @@ const mergeSort = (function() {
   return divide;
 })();
 
-function quickSort(arr) {}
+/**
+ * Quick sort is an efficient sorting algorithm,
+ * which utilizes the divide & conquer paradigm
+ * @param {Array} arr The input array
+ */
+function quickSort(arr) {
+  if (arr.length < 2) return arr;
+
+  const idx = arr.length - 1;
+  const chosen = arr[idx]
+  const a = [], b = []
+
+  for (let i = 0; i < idx; i++) {
+    const temp = arr[i];
+    temp < chosen ? a.push(temp) : b.push(temp)
+  }
+
+  return [...quickSort(a), chosen, ...quickSort(b)]
+}
 
 module.exports = { bubbleSort, insertionSort, mergeSort, quickSort };
