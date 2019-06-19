@@ -1,6 +1,6 @@
 const { Trie } = require('./Trie')
 const { MinHeap } = require('./Heap')
 const { bfs } = require('./Graph')
-const { bubbleSort, insertionSort } = require('./sort')
+const { bubbleSort, insertionSort, mergeSort } = require('./sort')
 
-module.exports = { Trie, MinHeap, bfs, bubbleSort, insertionSort }
+module.exports = { Trie, MinHeap, bfs, bubbleSort, insertionSort, mergeSort }
