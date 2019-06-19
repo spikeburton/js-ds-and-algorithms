@@ -9,21 +9,23 @@
  * @description Sort an array using the bubble sort algorithm
  */
 function bubbleSort(arr) {
+  // CLONE the array
+  const result = [...arr];
   let swap = false;
 
   do {
     swap = false;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] > arr[i + 1]) {
+    for (let i = 0; i < result.length; i++) {
+      if (result[i] > result[i + 1]) {
         swap = true;
-        const temp = arr[i + 1];
-        arr[i + 1] = arr[i];
-        arr[i] = temp;
+        const temp = result[i + 1];
+        result[i + 1] = result[i];
+        result[i] = temp;
       }
     }
   } while (swap);
 
-  return arr;
+  return result;
 }
 
 /**
@@ -31,22 +33,25 @@ function bubbleSort(arr) {
  * @param {Array} arr
  */
 function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
+  // CLONE the array
+  const result = [...arr];
+
+  for (let i = 1; i < result.length; i++) {
     // KEY is the element to insert
-    let key = arr[i];
+    let key = result[i];
     let j = i - 1;
     // LIST is already sorted to the left of the key, so find the first element
     // smaller and insert there
-    while (j >= 0 && arr[j] > key) {
-      // COPY the element at index j into arr[j+1] - note that this starts at arr[i]
+    while (j >= 0 && result[j] > key) {
+      // COPY the element at index j into result[j+1] - note that this starts at result[i]
       // SHUFFLE all the elements to the right until inserted into the correct spot
-      arr[j + 1] = arr[j];
+      result[j + 1] = result[j];
       j = j - 1;
     }
     // FINALLY copy the key into the spot where it belongs
-    arr[j + 1] = key;
+    result[j + 1] = key;
   }
-  return arr;
+  return result;
 }
 
 const mergeSort = (function() {
@@ -104,15 +109,16 @@ function quickSort(arr) {
   if (arr.length < 2) return arr;
 
   const idx = arr.length - 1;
-  const chosen = arr[idx]
-  const a = [], b = []
+  const chosen = arr[idx];
+  const a = [],
+    b = [];
 
   for (let i = 0; i < idx; i++) {
     const temp = arr[i];
-    temp < chosen ? a.push(temp) : b.push(temp)
+    temp < chosen ? a.push(temp) : b.push(temp);
   }
 
-  return [...quickSort(a), chosen, ...quickSort(b)]
+  return [...quickSort(a), chosen, ...quickSort(b)];
 }
 
 module.exports = { bubbleSort, insertionSort, mergeSort, quickSort };
