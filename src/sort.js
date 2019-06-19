@@ -58,7 +58,8 @@ const mergeSort = (function() {
    */
   const merge = (left, right) => {
     const result = [];
-    let il = 0, ir = 0;
+    let il = 0,
+      ir = 0;
 
     while (il < left.length || ir < right.length) {
       if (il < left.length && ir < right.length) {
@@ -67,8 +68,11 @@ const mergeSort = (function() {
         } else {
           result.push(right[ir++]);
         }
-      } else if (il < left.length) result.push(left[il++]);
-      else result.push(right[ir++]);
+      } else if (il < left.length) {
+        result.push(left[il++]);
+      } else {
+        result.push(right[ir++]);
+      }
     }
 
     return result;
