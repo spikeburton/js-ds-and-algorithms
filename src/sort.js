@@ -95,4 +95,6 @@ const mergeSort = (function() {
   return divide;
 })();
 
-module.exports = { bubbleSort, insertionSort, mergeSort };
+function quickSort(arr) {}
+
+module.exports = { bubbleSort, insertionSort, mergeSort, quickSort };
