@@ -1,12 +1,12 @@
-const { bubbleSort, insertionSort, mergeSort } = require('../src')
+const { bubbleSort, insertionSort, mergeSort, quickSort } = require('../src');
 
-const nums = [5, 10, 1, 9, 2, 8, 3, 7, 4, 6]
-let result;
-console.log('Nums: ', nums)
+const nums = [5, 10, 1, 9, 2, 8, 3, 7, 4, 6];
 
-// result = bubbleSort(nums)
-// console.log('Bubble sort: ', result)
-// result = insertionSort(nums)
-// console.log('Insertion sort: ', result)
-result = mergeSort(nums)
-console.log('Merge sort: ', result)
+console.log('Nums: ', nums);
+console.log('Bubble sort: ', bubbleSort(nums));
+console.log('Nums: ', nums);
+console.log('Insertion sort: ', insertionSort(nums));
+console.log('Nums: ', nums);
+console.log('Merge sort: ', mergeSort(nums));
+console.log('Nums: ', nums);
+console.log('Quick sort: ', quickSort(nums));
